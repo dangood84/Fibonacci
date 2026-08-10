@@ -23,6 +23,9 @@ The Fibonacci sequence is a series of numbers where each number is the sum of th
 Test a 100-term implementation immediately (no installation required):
 
 ```bash
+# Python (fast, built-in arbitrary precision)
+echo "100" | python3 Fibonacci.py
+
 # JavaScript (fast, uses BigInt)
 echo "100" | node fibonacci.js
 
@@ -122,6 +125,14 @@ This repository contains Fibonacci sequence implementations in the following lan
 - **Run**: `swipl -s Fibonacci.pl` or `swipl -s Fibonacci_loop.pl -g main -t halt`
 - **Note**: SWI-Prolog has built-in arbitrary precision integers
 
+### Python
+- **Files**:
+  - [Fibonacci.py](Fibonacci.py) - Iterative (supports 100+ terms) ✓
+  - [Fibonacci_generator.py](Fibonacci_generator.py) - Generator pattern (memory efficient) ✓
+  - [Fibonacci_recursive.py](Fibonacci_recursive.py) - Recursive with memoization ✓
+- **Run**: `python3 Fibonacci.py` (or `Fibonacci_generator.py`, `Fibonacci_recursive.py`)
+- **Note**: Python has built-in arbitrary precision integers - no external libraries needed!
+
 ### Shell Script
 - **Standard File**: [Fibonacci.sh](Fibonacci.sh) - Uses bash arithmetic (accurate up to F(93))
   - **Run**: `bash Fibonacci.sh` or `chmod +x Fibonacci.sh && ./Fibonacci.sh`
@@ -159,6 +170,7 @@ To run these implementations, you'll need the appropriate compiler or interprete
 The Fibonacci sequence grows exponentially, with F(100) being a 21-digit number: `354224848179261915075`
 
 **Languages with Built-in Support (no changes needed):**
+- ✓ **Python** - Built-in arbitrary precision integers
 - ✓ **Java** - Uses `BigInteger` class
 - ✓ **JavaScript** - Uses `BigInt` type (ES2020+)
 - ✓ **TypeScript** - Uses `bigint` type
@@ -204,6 +216,9 @@ fibonacci/
 ├── Fibonacci_python.pas          # Pascal using Python (100+ terms)
 ├── Fibonacci.pl                  # Prolog recursive (100+ terms, slow)
 ├── Fibonacci_loop.pl             # Prolog iterative (100+ terms, fast)
+├── Fibonacci.py                  # Python iterative (100+ terms)
+├── Fibonacci_generator.py        # Python generator (100+ terms)
+├── Fibonacci_recursive.py        # Python memoized recursion (100+ terms)
 ├── Fibonacci.sh                  # Shell script (up to F(93))
 ├── Fibonacci_bc.sh               # Shell with bc (100+ terms)
 ├── COMPARISON.md                 # Side-by-side comparison table

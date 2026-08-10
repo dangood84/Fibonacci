@@ -24,7 +24,10 @@ echo "100" | ./fibonacci_gmp_c
 ---
 
 ## ✅ Ready to Test (No Installation Required)
-
+### Python
+```bash
+echo "100" | python3 Fibonacci.py
+```
 ### JavaScript
 ```bash
 echo "100" | node fibonacci.js
@@ -183,6 +186,7 @@ For 100 terms on typical modern hardware:
 
 | Implementation | Time | Notes |
 |---------------|------|-------|
+| Python | < 1ms | Built-in arbitrary precision |
 | JavaScript BigInt | < 1ms | Very fast |
 | Java BigInteger | < 1ms | Very fast |
 | C with GMP | < 1ms | Highly optimized |

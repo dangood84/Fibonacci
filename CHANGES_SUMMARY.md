@@ -36,6 +36,7 @@ All Fibonacci implementations now have support for computing 100 terms!
 
 These implementations already had the necessary support (no changes needed):
 
+- ✓ **Python** - Built-in arbitrary precision integers
 - ✓ **Java** - Uses `BigInteger` class
 - ✓ **JavaScript** - Uses `BigInt` type  
 - ✓ **TypeScript** - Uses `bigint` type
@@ -84,6 +85,9 @@ These implementations already had the necessary support (no changes needed):
 ### No Installation Required (Ready to Run)
 
 ```bash
+# Python - Built-in arbitrary precision
+echo "100" | python3 Fibonacci.py
+
 # JavaScript - Built-in BigInt
 echo "100" | node fibonacci.js
 

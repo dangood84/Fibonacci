@@ -136,7 +136,44 @@ print_fib_loop(I, N, T1, T2) :- NextTerm is T1 + T2, ...
 - **Best for**: Practical use, any size
 
 ---
+### Python Implementations
 
+#### Iterative: [Fibonacci.py](Fibonacci.py)
+```python
+t1, t2 = 0, 1
+for _ in range(n):
+    result.append(t1)
+    t1, t2 = t2, t1 + t2
+```
+- **Type**: `int` (arbitrary precision by default)
+- **Built-in**: Yes, no imports needed
+- **Pros**: Clean syntax, fast, unlimited precision, no dependencies
+- **Best for**: Quick scripting, data science, general programming
+
+#### Generator: [Fibonacci_generator.py](Fibonacci_generator.py)
+```python
+def fibonacci_generator():
+    t1, t2 = 0, 1
+    while True:
+        yield t1
+        t1, t2 = t2, t1 + t2
+```
+- **Pattern**: Generator (lazy evaluation)
+- **Pros**: Memory efficient, Pythonic idiom
+- **Best for**: Streaming large sequences, memory-constrained environments
+
+#### Recursive: [Fibonacci_recursive.py](Fibonacci_recursive.py)
+```python
+@lru_cache(maxsize=None)
+def fibonacci_recursive(n):
+    if n <= 1: return n
+    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+```
+- **Pattern**: Recursion with `@lru_cache` memoization
+- **Pros**: Elegant, automatic caching, shows functional style
+- **Best for**: Educational purposes, functional programming fans
+
+---
 ### Pascal Implementations
 
 #### Standard: [Fibonacci.pas](Fibonacci.pas)
@@ -204,19 +241,60 @@ nextTerm=$(echo "$t1 + $t2" | bc)
 
 ---
 
+### Python Implementations
+
+#### Iterative: [Fibonacci.py](Fibonacci.py)
+```python
+t1, t2 = 0, 1
+for _ in range(n):
+    result.append(t1)
+    t1, t2 = t2, t1 + t2
+```
+- **Type**: `int` (arbitrary precision by default)
+- **Built-in**: Yes, no imports needed
+- **Pros**: Clean syntax, fast, unlimited precision, no dependencies
+- **Best for**: Quick scripting, data science, general programming
+
+#### Generator: [Fibonacci_generator.py](Fibonacci_generator.py)
+```python
+def fibonacci_generator():
+    t1, t2 = 0, 1
+    while True:
+        yield t1
+        t1, t2 = t2, t1 + t2
+```
+- **Pattern**: Generator (lazy evaluation)
+- **Pros**: Memory efficient, Pythonic idiom, can generate infinite sequences
+- **Best for**: Streaming large sequences, memory-constrained environments
+
+#### Recursive: [Fibonacci_recursive.py](Fibonacci_recursive.py)
+```python
+@lru_cache(maxsize=None)
+def fibonacci_recursive(n):
+    if n <= 1: return n
+    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+```
+- **Pattern**: Recursion with `@lru_cache` memoization
+- **Pros**: Elegant, automatic caching, shows functional style
+- **Best for**: Educational purposes, functional programming fans
+
+---
+
 ## Choosing the Right Implementation
 
 ### For Speed (100 terms in <1ms)
-1. **JavaScript/TypeScript** - Easiest to run
-2. **Java** - Most portable
-3. **C with GMP** - Fastest absolute performance
-4. **C++ with Boost** - Fastest with native C++ syntax
+1. **Python** - Cleanest syntax, widely available
+2. **JavaScript/TypeScript** - Easiest to run in browser/Node.js
+3. **Java** - Most portable across platforms
+4. **C with GMP** - Fastest absolute performance
+5. **C++ with Boost** - Fastest with native C++ syntax
 
 ### For No Dependencies
-1. **JavaScript/TypeScript** - Built-in BigInt
-2. **Java** - Built-in BigInteger
-3. **Prolog** - Built-in arbitrary precision
-4. **Pascal/Fortran bignum** - Self-contained string arithmetic
+1. **Python** - Built-in arbitrary precision
+2. **JavaScript/TypeScript** - Built-in BigInt
+3. **Java** - Built-in BigInteger
+4. **Prolog** - Built-in arbitrary precision
+5. **Pascal/Fortran bignum** - Self-contained string arithmetic
 
 ### For Learning
 1. **Pascal/Fortran bignum** - Shows how bignum works internally
@@ -235,6 +313,7 @@ nextTerm=$(echo "$t1 + $t2" | bc)
 
 ### No Compilation Required
 ```bash
+python3 Fibonacci.py                           # Python
 node fibonacci.js                              # JavaScript
 swipl -s Fibonacci_loop.pl -g main -t halt    # Prolog
 bash Fibonacci_bc.sh                          # Shell
