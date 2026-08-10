@@ -29,7 +29,7 @@ echo "100" | python3 Fibonacci.py
 # JavaScript (fast, uses BigInt)
 echo "100" | node fibonacci.js
 
-# TypeScript (directly, uses bigint)
+# TypeScript (directly, uses bigint - requires one-time npm install)
 npm install && echo "100" | npx ts-node Fibonacci.ts
 
 # Shell Script (uses bc calculator)
@@ -148,12 +148,34 @@ To run these implementations, you'll need the appropriate compiler or interprete
 - **Fortran**: gfortran
 - **Java**: JDK (Java Development Kit)
 - **JavaScript**: Node.js
-- **TypeScript**: Node.js and either:
-  - `ts-node` for direct execution: `npm install` (installs from package.json)
-  - Or `tsc` for compilation: `npm install -g typescript`
+- **TypeScript**: Node.js (see [Node.js/TypeScript Setup](#nodejstypescript-setup) below)
 - **Pascal**: Free Pascal Compiler (fpc)
 - **Prolog**: SWI-Prolog (`brew install swi-prolog` on macOS)
+- **Python**: Python 3 (usually pre-installed on macOS/Linux)
 - **Shell**: Bash (usually pre-installed on macOS/Linux)
+
+### Node.js/TypeScript Setup
+
+For JavaScript and TypeScript implementations:
+
+1. **Install Node.js** (if not already installed):
+   - macOS: `brew install node`
+   - Or download from [nodejs.org](https://nodejs.org/)
+
+2. **Install dependencies** (for TypeScript direct execution):
+   ```bash
+   npm install
+   ```
+   This reads the included `package.json` and installs:
+   - `typescript` - TypeScript compiler
+   - `ts-node` - Direct TypeScript execution
+   - `@types/node` - TypeScript definitions for Node.js
+
+**Note**: The `package.json` file is already included in this repository. If you were starting from scratch, you could create it with:
+```bash
+npm init -y  # Creates a basic package.json
+npm install --save-dev typescript ts-node @types/node  # Add dependencies
+```
 
 ### Additional Requirements for 100-Term Versions
 
