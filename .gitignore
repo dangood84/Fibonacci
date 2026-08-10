@@ -1,0 +1,76 @@
+# Compiled Binaries
+fibonacci_gmp_c
+fibonacci_boost_cpp
+fibonacci_bignum_f90
+fibonacci_bignum_pas
+fibonacci_python_f90
+fibonacci_python_pas
+fibonacci_c
+fibonacci_cpp
+fibonacci_f90
+Fibonacci
+Fibonacci_fortran
+fibonacci_gmp
+fibonacci_boost
+
+# Object Files
+*.o
+*.obj
+
+# Java
+*.class
+
+# TypeScript compiled output
+Fibonacci.js
+Fibonacci.js.map
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Pascal
+*.ppu
+*.exe
+*.res
+*.compiled
+fibonaccibignum
+
+# Fortran
+*.mod
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
