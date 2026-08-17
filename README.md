@@ -45,12 +45,14 @@ javac Fibonacci.java && echo "100" | java Fibonacci
 # Easy way - Use the Makefile:
 brew install gmp boost  # Install libraries first
 make gmp                # Build C with GMP
+make boost              # Build C++ with Boost
 make test               # Build and test GMP version
 echo "100" | ./fibonacci_gmp_c
+echo "100" | ./fibonacci_boost_cpp
 
-# Or compile manually using pkg-config:
+# Or compile manually:
 gcc Fibonacci_gmp.c -o fibonacci_gmp_c $(pkg-config --cflags --libs gmp)
-echo "100" | ./fibonacci_gmp_c
+g++ -std=c++14 -I/opt/homebrew/include Fibonacci_boost.cpp -o fibonacci_boost_cpp
 ```
 
 For more testing commands, see the [Testing Guide](TESTING_GUIDE.md).
@@ -73,9 +75,11 @@ This repository contains Fibonacci sequence implementations in the following lan
   - **Compile**: `g++ Fibonacci.cpp -o fibonacci_cpp`
   - **Run**: `./fibonacci_cpp`
 - **100-Term Version**: [Fibonacci_boost.cpp](Fibonacci_boost.cpp) - Uses Boost Multiprecision library
-  - **Compile**: `g++ Fibonacci_boost.cpp -o fibonacci_boost_cpp`
   - **Install Boost**: `brew install boost` (macOS) or `sudo apt-get install libboost-all-dev` (Linux)
+  - **Compile**: `g++ -std=c++14 -I/opt/homebrew/include Fibonacci_boost.cpp -o fibonacci_boost_cpp`
+  - **Or use Makefile**: `make boost`
   - **Run**: `./fibonacci_boost_cpp`
+  - **Note**: Requires C++14 standard for Boost Multiprecision features
 
 ### Fortran
 - **Standard File**: [Fibonacci.f90](Fibonacci.f90) - Uses 64-bit integers (accurate up to F(93))
@@ -182,9 +186,10 @@ npm install --save-dev typescript ts-node @types/node  # Add dependencies
 - **C (GMP version)**: GNU Multiple Precision library
   - macOS: `brew install gmp`
   - Linux: `sudo apt-get install libgmp-dev`
-- **C++ (Boost version)**: Boost C++ Libraries
+- **C++ (Boost version)**: Boost C++ Libraries + C++14 compiler support
   - macOS: `brew install boost`
   - Linux: `sudo apt-get install libboost-all-dev`
+  - **Compiler flag**: Must use `-std=c++14` or newer
 - **Shell (bc version)**: `bc` calculator (usually pre-installed)
 
 ## 100-Term Support

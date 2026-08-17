@@ -32,7 +32,7 @@ fibonacci_gmp_c: Fibonacci_gmp.c
 	$(CC) $(CFLAGS) Fibonacci_gmp.c -o fibonacci_gmp_c $(GMP_FLAGS)
 
 fibonacci_boost_cpp: Fibonacci_boost.cpp
-	$(CXX) $(CXXFLAGS) Fibonacci_boost.cpp -o fibonacci_boost_cpp $(BOOST_INCLUDE)
+	$(CXX) $(CXXFLAGS) -std=c++14 Fibonacci_boost.cpp -o fibonacci_boost_cpp $(BOOST_INCLUDE)
 
 clean:
 	rm -f fibonacci_gmp_c fibonacci_boost_cpp fibonacci_gmp fibonacci_boost *.o
