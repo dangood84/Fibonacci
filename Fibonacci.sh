@@ -12,7 +12,7 @@
 # 
 # This version shows the limitation and warns about overflow
 
-echo -n "Enter the number of terms: "
+echo "Enter the number of terms: "
 read n
 
 echo "Fibonacci Series:"
@@ -23,7 +23,7 @@ t2=1
 
 for ((i=1; i<=n; i++))
 do
-    echo -n "$t1, "
+    echo "$t1, "
     nextTerm=$((t1 + t2))
     t1=$t2
     t2=$nextTerm
